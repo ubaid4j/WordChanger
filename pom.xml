@@ -35,10 +35,12 @@
 
 			<executions>
 				<execution>
+
 					<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
+
+					<goals>
+						<goal>single</goal>
+					</goals>
 				</execution>
 			</executions>
 			
