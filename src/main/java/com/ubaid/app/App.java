@@ -1,5 +1,7 @@
 package com.ubaid.app;
 
+import java.util.Arrays;
+
 public class App
 {
 	public static void main(String [] args)
@@ -13,6 +15,8 @@ public class App
 	{
 		try
 		{
+			System.out.println(Arrays.toString(commands));
+			
 			int dir1 = find(commands, "-d");
 			int old1 = find(commands, "-o");
 			int new1 = find(commands, "-n");
