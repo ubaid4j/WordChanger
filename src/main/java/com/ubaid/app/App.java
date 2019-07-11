@@ -11,24 +11,33 @@ public class App
 	
 	private void app(String[] commands)
 	{
-		int dir1 = find(commands, "-d");
-		int old1 = find(commands, "-o");
-		int new1 = find(commands, "-n");
+		try
+		{
+			int dir1 = find(commands, "-d");
+			int old1 = find(commands, "-o");
+			int new1 = find(commands, "-n");
 
-		String dir = commands[dir1 + 1];
-		String old = commands[old1 + 1];
-		String newW = commands[new1 + 1];
-		
-		if(!dir.equals(null) && !old.equals(null) && !newW.equals(null))
-		{
-			System.out.println(dir);
-			System.out.println(old);
-			System.out.println(newW);
+			String dir = commands[dir1 + 1];
+			String old = commands[old1 + 1];
+			String newW = commands[new1 + 1];
+			
+			if(!dir.equals(null) && !old.equals(null) && !newW.equals(null))
+			{
+				System.out.println(dir);
+				System.out.println(old);
+				System.out.println(newW);
+			}
+			else
+			{
+				System.out.println("use to following command");
+				System.out.println("java -jar WordChanger-1.jar -d '/path/to/folder/' -o 'oldWord' -n 'NewWord'");
+			}
+			
 		}
-		else
+		catch(ArrayIndexOutOfBoundsException arrEx)
 		{
-			System.out.println("use to following command");
-			System.out.println("java -jar WordChanger-1.jar -d '/path/to/folder/' -o 'oldWord' -n 'NewWord'");
+			System.out.println("Terminated");
+			System.out.println("java -jar WordChanger-1.jar -d '/path/to/folder/' -o 'oldWord' -n 'NewWord'");			
 		}
 		
 	}
