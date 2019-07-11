@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>1</groupId>
 	<artifactId>WordChanger</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>Alha</version>
 
 	<properties>
 		<maven.compiler.source>12</maven.compiler.source>
@@ -12,6 +12,8 @@
 	
 	
 	<build>
+
+		<finalName>WordChanger_${version}</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
@@ -20,6 +22,8 @@
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
+	
+					<appendAssemblyId>false</appendAssemblyId>
 	
 					<archive>
 						<manifest>
@@ -31,6 +35,7 @@
 						${project.build.finalName}
 					</filename>
 
+
 				</configuration>
 
 			<executions>
@@ -41,6 +46,8 @@
 					<goals>
 						<goal>single</goal>
 					</goals>
+					
+					
 				</execution>
 			</executions>
 			
