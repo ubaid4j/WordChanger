@@ -1,9 +1,16 @@
 package com.ubaid.app;
 
 import java.util.Arrays;
+import java.util.StringJoiner;
+
+import com.ubaid.app.commandBuilder.Builder;
+import com.ubaid.app.commandBuilder.DirectoryParameterBuilder;
+import com.ubaid.app.commandBuilder.NewWordParameterBuilder;
+import com.ubaid.app.commandBuilder.OldWordParameterBuilder;
 
 public class App
 {
+	
 	public static void main(String [] args)
 	{
 		System.out.println("Will start soon");		
@@ -11,31 +18,15 @@ public class App
 		app.app(args);
 	}
 	
-	private void app(String[] commands)
+	public void app(String[] commands)
 	{
 		try
 		{
-			System.out.println(Arrays.toString(commands));
+			String dir = getDirectory(commands);
+			String oldWord = getOldWord(commands);
+			String newWord = getNewWord(commands);
 			
-			int dir1 = find(commands, "-d");
-			int old1 = find(commands, "-o");
-			int new1 = find(commands, "-n");
-
-			String dir = commands[dir1 + 1];
-			String old = commands[old1 + 1];
-			String newW = commands[new1 + 1];
-			
-			if(!dir.equals(null) && !old.equals(null) && !newW.equals(null))
-			{
-				System.out.println(dir);
-				System.out.println(old);
-				System.out.println(newW);
-			}
-			else
-			{
-				System.out.println("use to following command");
-				System.out.println("java -jar WordChanger-1.jar -d '/path/to/folder/' -o 'oldWord' -n 'NewWord'");
-			}
+			System.out.println(dir + "\n"  + oldWord + "\n" + newWord);
 			
 		}
 		catch(ArrayIndexOutOfBoundsException arrEx)
@@ -44,18 +35,24 @@ public class App
 			System.out.println("java -jar WordChanger-1.jar -d '/path/to/folder/' -o 'oldWord' -n 'NewWord'");			
 		}
 		
+	}	
+	
+	
+	private String getDirectory(String[] args)
+	{
+		Builder builder = new DirectoryParameterBuilder();
+		return builder.getParam(args);
 	}
 	
-	private int find(String[] args, String command)
+	private String getOldWord(String[] args)
 	{
-		int index = 0;
-		for(String com : args)
-		{
-			++index;
-			if(com.equals(command))
-				return index;
-		}
-		
-		return -1;
+		Builder builder = new OldWordParameterBuilder();
+		return builder.getParam(args);
+	}
+	
+	private String getNewWord(String[] args)
+	{
+		Builder builder = new NewWordParameterBuilder();
+		return builder.getParam(args);
 	}
 }
