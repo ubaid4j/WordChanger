@@ -12,16 +12,16 @@
 	<li>Example: Let there are 1000 files in /path/to directory</li>
 	<li>You want to change a specific word [sentence in each file]</li>
 	<li>Then simple run</li>
-	<li>java -jar WordChanger-Alpha.jar -d /path/to -o oldWord -n newword<li>
+	<li>java -jar WordChanger-Beta.jar -d /path/to -o oldWord -n newword<li>
 </ol>
 <ol>
 	<h4>Building Instruction</h4>
 	Do the following steps
 	<li><strong>git clone 'https://github.com/UbaidurRehman1/WordChanger.git'</strong></li>
 	<li><strong>cd WordChanger</strong></li>
-	<li><strong>mvn clean compile assembly:single</strong></li>
+	<li><strong>mvn test clean compile assembly:single</strong></li>
 	<li>cd target</li>
-	<li><strong>java -jar  WordChanger-Alpha.jar -d /path/to -o oldWord -n newword</strong> to run the jar</li>
+	<li><strong>java -jar  WordChanger-Beta.jar -d /path/to -o oldWord -n newword</strong> to run the jar</li>
 </ol>
 <ol>
 	<h4>Requirements</h4>
