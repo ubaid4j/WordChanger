@@ -5,14 +5,25 @@
 	<version>Beta</version>
 
 	<properties>
-		<maven.compiler.source>12</maven.compiler.source>
-		<maven.compiler.target>12</maven.compiler.target>
+		<java.version>12</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     	
     	<spring.version>5.1.7.RELEASE</spring.version>
     	<aspect.version>1.9.4</aspect.version>
 	</properties>	
+	
+		
+	<developers>
+        <developer>
+            <id>ur</id>
+            <name>Ubaid ur Rehman</name>
+            <email>urehman.bese16seecs@seecs.edu.pk</email>
+        </developer>
+    </developers>
 	
 	
 	<dependencies>
@@ -98,7 +109,7 @@
 		<finalName>WordChanger_${project.version}</finalName>
 		<plugins>
 			
-			
+			<!-- Plug-in For JUNIT 5 -->
 			<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -122,7 +133,7 @@
 			
 			
 			
-			
+			<!-- Plug-in for maven-assembly -->
 			<plugin>
 		
 				<artifactId>maven-assembly-plugin</artifactId>
@@ -152,14 +163,14 @@
 				<execution>
 					<id>make-assembly</id>
 					<phase>package</phase>
-
 					<goals>
 						<goal>single</goal>
 					</goals>
 				</execution>
 			</executions>
-			
 		</plugin>
+		
+		
 		</plugins>
 	</build>
 	
