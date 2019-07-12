@@ -1,7 +1,9 @@
 package com.ubaid.app;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
+import java.io.File;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -24,20 +26,31 @@ class AppTest
 	private String[] commands_arr;
 	
 	private Builder builder;
+	private App app;
 	
-	
-	void cTest1()
+	@BeforeAll
+	public void init()
 	{
-		builder = new DirectoryParameterBuilder();
-		assertEquals("/this/path", builder.getParam(command4.split(" ")).trim());
+		app = new App();
 	}
 	
-	void cTest2()
+	@Test
+	public void appTest()
 	{
-		builder = new OldWordParameterBuilder();
-		assertEquals("gpu = no", builder.getParam(command1.split(" ")).trim());		
+		ClassLoader loader = getClass().getClassLoader();
+		String dirS = loader.getResource("nnet2").getFile();
+		File file = new File(dirS);
+		String testCommand = String.format("-d %s -o gpu = no -n gpu=yes",
+				file.getAbsolutePath());
+		try
+		{
+			app.app(testCommand.split(" "));
+		}
+		catch (Exception e)
+		{
+			fail(e);
+		}
 	}
-	
 	
 	@BeforeAll
 	void set()

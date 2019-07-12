@@ -1,32 +1,60 @@
 package com.ubaid.app;
 
-import java.util.Arrays;
-import java.util.StringJoiner;
 
-import com.ubaid.app.commandBuilder.Builder;
-import com.ubaid.app.commandBuilder.DirectoryParameterBuilder;
-import com.ubaid.app.commandBuilder.NewWordParameterBuilder;
-import com.ubaid.app.commandBuilder.OldWordParameterBuilder;
+import java.io.File;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.ubaid.app.doa.service.CommandService;
+import com.ubaid.app.doa.service.FileService;
 
 public class App
 {
 	
+	
+
 	public static void main(String [] args)
 	{
-		System.out.println("Will start soon");		
+
 		App app = new App();
-		app.app(args);
-	}
-	
-	public void app(String[] commands)
-	{
 		try
 		{
-			String dir = getDirectory(commands);
-			String oldWord = getOldWord(commands);
-			String newWord = getNewWord(commands);
+			app.app(args);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public void runConfig()
+	{
+		AnnotationConfigApplicationContext context = 
+		new AnnotationConfigApplicationContext(Config.class);
+		context.close();
+	}
+	
+	public void app(String[] commands) throws Exception
+	{
+		AnnotationConfigApplicationContext context 
+			= new AnnotationConfigApplicationContext(Config.class);
+		
+		try
+		{
+
+
+			CommandService cSer = context.getBean("commandServiceImp", CommandService.class);
+			FileService fileSer = context.getBean("fileServiceImp", FileService.class);
 			
-			System.out.println(dir + "\n"  + oldWord + "\n" + newWord);
+			String dir = cSer.getDir(commands);
+			String oldWord = cSer.getOldName(commands);
+			String newWord = cSer.getNewName(commands);
+
+			File directory = new File(dir);
+			if(!directory.exists())
+				throw new IllegalArgumentException();
+				
+			fileSer.change(directory, oldWord, newWord);				
 			
 		}
 		catch(ArrayIndexOutOfBoundsException arrEx)
@@ -34,25 +62,15 @@ public class App
 			System.out.println("Terminated");
 			System.out.println("java -jar WordChanger-1.jar -d '/path/to/folder/' -o 'oldWord' -n 'NewWord'");			
 		}
+		catch (IllegalArgumentException e)
+		{
+			System.out.println("Not a Directory");
+			System.out.println("java -jar WordChanger-1.jar -d '/path/to/folder/' -o 'oldWord' -n 'NewWord'");			
+		}
+		finally {
+			context.close();
+		}
 		
 	}	
 	
-	
-	private String getDirectory(String[] args)
-	{
-		Builder builder = new DirectoryParameterBuilder();
-		return builder.getParam(args);
-	}
-	
-	private String getOldWord(String[] args)
-	{
-		Builder builder = new OldWordParameterBuilder();
-		return builder.getParam(args);
-	}
-	
-	private String getNewWord(String[] args)
-	{
-		Builder builder = new NewWordParameterBuilder();
-		return builder.getParam(args);
-	}
 }

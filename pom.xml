@@ -2,13 +2,16 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>1</groupId>
 	<artifactId>WordChanger</artifactId>
-	<version>Alha</version>
+	<version>Beta</version>
 
 	<properties>
 		<maven.compiler.source>12</maven.compiler.source>
 		<maven.compiler.target>12</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    	
+    	<spring.version>5.1.7.RELEASE</spring.version>
+    	<aspect.version>1.9.4</aspect.version>
 	</properties>	
 	
 	
@@ -19,6 +22,73 @@
 		    <version>5.1.0</version>
 		    <scope>test</scope>
 		</dependency>
+		
+		
+		<!-- spring AOP -->
+		<dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-aop</artifactId>
+    		<version>${spring.version}</version>
+		</dependency>
+
+		<!-- AspectJ required for Spring AOP -->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>${aspect.version}</version>
+		</dependency>
+
+
+		<!-- spring aspects -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-aspects</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+
+		<!-- spring beans -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-beans</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+
+		<!-- spring context -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+
+		<!-- spring context indexer -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-indexer</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+
+		<!-- spring context support -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+
+
+		<!-- spring core -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-core</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+
+		<!-- spring expression -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-expression</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		
 	</dependencies>
 	
 	
@@ -27,6 +97,32 @@
 
 		<finalName>WordChanger_${project.version}</finalName>
 		<plugins>
+			
+			
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.0</version>
+                <configuration>
+                    <argLine>
+                        --illegal-access=permit
+                    </argLine>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.22.0</version>
+                <configuration>
+                    <argLine>
+                        --illegal-access=permit
+                    </argLine>
+                </configuration>
+            </plugin>
+			
+			
+			
+			
 			<plugin>
 		
 				<artifactId>maven-assembly-plugin</artifactId>
@@ -47,7 +143,7 @@
 						${project.build.finalName}
 					</filename>
 
-					<appendAssemblyId>false</appendAssemblyId>
+					<appendAssemblyId>true</appendAssemblyId>
 
 
 				</configuration>

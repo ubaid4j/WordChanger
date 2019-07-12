@@ -1,5 +1,8 @@
 package com.ubaid.app.commandBuilder;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class OldWordParameterBuilder extends AbstractCommandParameterBuilder {
 
 	@Override
