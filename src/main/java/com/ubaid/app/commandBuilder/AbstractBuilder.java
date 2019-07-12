@@ -1,5 +1,11 @@
 package com.ubaid.app.commandBuilder;
 
+/**
+ * This is AbtractBuilder class having some fundamental methods and it 
+ * implements the Builder interface which have change method
+ * @author UbaidurRehman
+ *
+ */
 public abstract class AbstractBuilder implements Builder
 {	
 	/**
@@ -63,6 +69,12 @@ public abstract class AbstractBuilder implements Builder
 			
 	}
 	
+	/**
+	 * 
+	 * @param first
+	 * @param second
+	 * @return max one
+	 */
 	private int max(int first, int second)
 	{
 		if(first > second)
@@ -75,6 +87,12 @@ public abstract class AbstractBuilder implements Builder
 		}
 	}
 	
+	/**
+	 * 
+	 * @param first
+	 * @param second
+	 * @return min one
+	 */
 	private int min(int first, int second)
 	{
 		if(first < second)
@@ -107,7 +125,9 @@ public abstract class AbstractBuilder implements Builder
 		return param;
 	}
 
-	public abstract String getParam(String[] args);
-	
-	
+	/**
+	 * @param args ~ args from the main adn 
+	 * @return the parameter of desired bar [-d, -o, -n]
+	 */
+	public abstract String getParam(String[] args);	
 }

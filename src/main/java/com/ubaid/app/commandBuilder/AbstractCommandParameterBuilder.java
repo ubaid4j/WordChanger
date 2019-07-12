@@ -19,14 +19,7 @@ public abstract class AbstractCommandParameterBuilder extends AbstractBuilder
 		return buildString(args, baseIndex, args.length + 1);
 	}	
 
-
-	
 	protected abstract String getBaseIndex();
 	protected abstract String getSecondIndex();
 	protected abstract String getThirdIndex();
-
-
-	
-	
-	
 }

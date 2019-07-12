@@ -1,7 +1,11 @@
 package com.ubaid.app.doa.service;
 
 import java.io.File;
-
+/**
+ * 
+ * @author UbaidurRehman
+ *
+ */
 public interface FileService
 {
 	

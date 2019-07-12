@@ -15,6 +15,11 @@ import com.ubaid.app.commandBuilder.DirectoryParameterBuilder;
 import com.ubaid.app.commandBuilder.NewWordParameterBuilder;
 import com.ubaid.app.commandBuilder.OldWordParameterBuilder;
 
+/**
+ * Testing the Application [As simulation of real event]
+ * @author UbaidurRehman
+ *
+ */
 @TestInstance(value = Lifecycle.PER_CLASS)
 class AppTest
 {
