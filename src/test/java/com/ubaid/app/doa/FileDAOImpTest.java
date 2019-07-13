@@ -44,7 +44,7 @@ class FileDAOImpTest
 		try
 		{
 			fileDAO.change(file, "use_gpu=no", "use_gpu=yes");	
-			fileDAO.change(file, "use_gpu= no ", "use_gpu=yes");	
+			fileDAO.change(file, "use_gpu= no", "use_gpu=yes");	
 			fileDAO.change(file, "use_gpu=\"no\"", "use_gpu=\"yes\"");
 			fileDAO.change(file, "use_gpu = \"no\"", "use_gpu = \"yes\"");
 			fileDAO.change(file, "use_gpu = \"no\"", "use_gpu = \"yes\"");

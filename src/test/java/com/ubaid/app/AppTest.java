@@ -45,7 +45,7 @@ class AppTest
 		ClassLoader loader = getClass().getClassLoader();
 		String dirS = loader.getResource("nnet2").getFile();
 		File file = new File(dirS);
-		String testCommand = String.format("-d %s -o gpu = no -n gpu=yes",
+		String testCommand = String.format("-d %s -o use_gpu = no -n use_gpu=yes",
 				file.getAbsolutePath());
 		try
 		{
@@ -80,14 +80,14 @@ class AppTest
 	void newWordTest()
 	{
 		builder = new NewWordParameterBuilder();
-		initTest("gpu = yes");
+		initTest("use_gpu = yes");
 	}
 
 	@Test
 	void oldWordTest()
 	{
 		builder = new OldWordParameterBuilder();
-		initTest("gpu = no");
+		initTest("use_gpu = no");
 	}
 	
 	void initTest(String matchWord)
