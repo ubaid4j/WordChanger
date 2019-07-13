@@ -99,5 +99,4 @@ class AppTest
 			assertEquals(matchWord, result);
 		}		
 	}
-
 }

@@ -12,7 +12,7 @@
 	<li>Example: Let there are 1000 files in /path/to directory</li>
 	<li>You want to change a specific word [sentence in each file]</li>
 	<li>Then simple run</li>
-	<li>java -jar WordChanger-Beta.jar -d /path/to -o oldWord -n newword<li>
+	<li>java -jar WordChanger-Beta.jar -d /path/to -o oldWord -n newword</li>
 </ol>
 <ol>
 	<h4>Building Instruction</h4>
