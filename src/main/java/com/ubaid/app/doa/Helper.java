@@ -21,7 +21,6 @@ public class Helper
 		//for result if old word match then found will greater than 0
 		int found = -1;
 		int lineNumber = 0;
-		
 		//creating temp file for holding being processed file contents
 		File tempFile = new File(file.getParent() + "/temp.sh");
 		

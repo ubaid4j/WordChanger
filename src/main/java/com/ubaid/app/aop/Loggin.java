@@ -53,7 +53,7 @@ public class Loggin extends AOP
 	private Object proceed(ProceedingJoinPoint joinPoint, String OldWord, String newWord)
 	{
 		String info = null;
-		Object result = null;			
+		Object result = -1;			
 		try
 		{
 			//getting result from the joinPoint [actually the Helper.Change method]
@@ -69,9 +69,10 @@ public class Loggin extends AOP
 			System.out.println(info);
 		}
 		catch(Throwable exp)
-		{
-			result = exp.getMessage();
-			System.out.println("[INFO]: " + result);
+		{	
+			exp.printStackTrace();
+			result = -1;
+			System.out.println("[Error]: " + exp.getMessage());
 		}
 		
 		return result;

@@ -51,9 +51,9 @@ public class App
 			FileService fileSer = context.getBean("fileServiceImp", FileService.class);
 			
 			//getting commands parameters
-			String dir = cSer.getDir(commands);
-			String oldWord = cSer.getOldName(commands);
-			String newWord = cSer.getNewName(commands);
+			String dir = cSer.getDir(commands).trim();
+			String oldWord = cSer.getOldName(commands).trim();
+			String newWord = cSer.getNewName(commands).trim();
 
 			//checking if the directory exists [provided by the user]
 			File directory = new File(dir);
