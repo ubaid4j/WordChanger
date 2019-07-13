@@ -70,7 +70,6 @@ public class Loggin extends AOP
 		}
 		catch(Throwable exp)
 		{	
-			exp.printStackTrace();
 			result = -1;
 			System.out.println("[Error]: " + exp.getMessage());
 		}
