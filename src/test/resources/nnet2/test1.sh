@@ -1,15 +1,15 @@
-gpu = yes
-gpu=no
-gpu="no"
-gpu="no"
-gpu=no
-gpu="no"
-gpu="no" #gpu=no
-gpu="no"
-gpu="no" #gpu=no
-gpu="no"
-gpu="no" #gpu=no
-gpu="no"
-gpu="no" #gpu=no
-gpu="no"
-gpu="no"
+use_gpu = yes
+use_gpu=no
+use_gpu="no"
+use_gpu="no"
+use_gpu=no
+use_gpu="no"
+use_gpu = "no" #use_gpu=no
+use_gpu = "no"
+use_gpu="no" #use_gpu=no
+use_gpu="no"
+use_gpu="no" #use_gpu=no
+use_gpu = "no"
+use_gpu = no #use_gpu=no
+use_gpu="no"
+use_gpu="no"

@@ -1,2 +1,2 @@
-gpu = no
-gpu = no #hello there I am Ubaid
+use_gpu = no
+use_gpu = no #hello there I am Ubaid
