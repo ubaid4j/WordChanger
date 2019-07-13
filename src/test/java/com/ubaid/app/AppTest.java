@@ -24,10 +24,10 @@ import com.ubaid.app.commandBuilder.OldWordParameterBuilder;
 class AppTest
 {
 	private final int totalCommand = 4;
-	private String command1 = "-d /this/path -o gpu = no -n gpu = yes ";
-	private String command2 = "-d /this/path -n gpu = yes -o gpu = no";
-	private String command3 = "-o gpu = no -n gpu = yes -d /this/path";
-	private String command4 = "-o gpu = no -d /this/path -n gpu = yes";
+	private String command1 = "-d /this/path -o use_gpu = no -n use_gpu = yes";
+	private String command2 = "-d /this/path -n use_gpu = yes -o use_gpu = no";
+	private String command3 = "-o use_gpu = no -n use_gpu = yes -d /this/path";
+	private String command4 = "-o use_gpu = no -d /this/path -n use_gpu = yes";
 	private String[] commands_arr;
 	
 	private Builder builder;
